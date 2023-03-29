@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runner</title>
+    <style>
+        body{
+            background-color: rgb(47, 47, 47);
+        }
+        main{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Text menu"
+        }
+        @font-face{
+            font-family: "Text menu";
+            src: url(./assets/PixelEmulator-xq08.ttf)
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="contenedor"></div>
+        <audio src="./assets/background.mp3" id="bg"></audio>
+        <audio src="./assets/GameOver.mp3" id="gameOver"></audio>
+        <audio src="./assets/jump.mp3" id="jump"></audio>
+    </main>
+
+    <script src="node_modules/phaser/dist/phaser.js"></script>
+    <script src="src/init.js" type="module"></script>
+</body>
+</html>
