@@ -44,5 +44,3 @@ export default class GameOver extends Phaser.Scene{
         })
     }
 }
-
-// Tamaño de sprite 80px por 90px //

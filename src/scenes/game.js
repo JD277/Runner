@@ -29,7 +29,7 @@ export default class GameScene extends Phaser.Scene{
         this.bird = this.physics.add.group()
 
         this.cactusInterval = setInterval(() => {this.cactus.add(new Cactus (this, 700, 393, "Cactus"))
-                            this.timerBird = setTimeout(() => {this.bird.add(new Bird (this, 700, 250, "bird"))}, 600)
+                            this.timerBird = setTimeout(() => {this.bird.add(new Bird (this, 700, 280, "bird"))}, 700)
                             this.bird.playAnimation("fly")}
         , Math.floor((Math.random()* (3000 - 2000 + 1)) + 2000))
         
@@ -40,7 +40,7 @@ export default class GameScene extends Phaser.Scene{
                 frames: [0, 1]
             }),
             repeat: -1,
-            frameRate: 10,
+            frameRate: 4,
             duration: 0
         })
 
@@ -50,7 +50,7 @@ export default class GameScene extends Phaser.Scene{
                 frames: [0, 1, 2, 3, 4]
             }),
             repeat: -1,
-            frameRate: 10,
+            frameRate: 5,
             duration: 0
         })
 
@@ -70,7 +70,7 @@ export default class GameScene extends Phaser.Scene{
         this.ground.setCollideWorldBounds(true)
         this.colideCactus = this.physics.add.collider(this.ground, this.cactus.getChildren(), this.stop, null, this)
         this.colideRunner = this.physics.add.collider(this.runner, this.cactus.getChildren(), this.stop, null, this)
-        this.colideBird = this.physics.add.collider(this.runner, this.bird.getChildren(), this.stop)
+        this.colideBird = this.physics.add.collider(this.runner, this.bird.getChildren(), this.stop, null, this)
 
         this.colide = this.physics.add.collider(this.ground, this.runner, () => {this.jumping = true}, null, this.scene)
 
@@ -99,23 +99,40 @@ export default class GameScene extends Phaser.Scene{
         }
         switch(true){
             case this.puntos > 100 && this.puntos < 300:
+                this.cactus.setVelocityX(-400)
+                this.bird.setVelocityX(-400)
+                this.runner.body.setGravityY(1900)
+                break;
+
+            case this.puntos > 300 && this.puntos < 500:
+                this.cactus.setVelocityX(-450)
+                this.bird.setVelocityX(-450)
+                break;
+
+            case this.puntos > 500 && this.puntos < 700:
                 this.cactus.setVelocityX(-500)
                 this.bird.setVelocityX(-500)
                 break;
 
-            case this.puntos > 300 && this.puntos < 500:
+            case this.puntos > 700 && this.puntos < 900:
+                this.cactus.setVelocityX(-550)
+                this.bird.setVelocityX(-550)
+                break;
+
+            case this.puntos > 900 && this.puntos < 1000:
+                this.cactus.setVelocityX(-600)
+                this.bird.setVelocityX(-600)
+                this.runner.body.setGravityY(1800)
+                break;
+            
+            case this.puntos > 1000:
                 this.cactus.setVelocityX(-700)
                 this.bird.setVelocityX(-700)
                 break;
 
-            case this.puntos > 500:
-                this.cactus.setVelocityX(-1000)
-                this.bird.setVelocityX(-1000)
-                break;
-
             default:
-                this.cactus.setVelocityX(-300)
-                this.bird.setVelocityX(-300)
+                this.cactus.setVelocityX(-350)
+                this.bird.setVelocityX(-350)
                 break;
 
         }
@@ -129,5 +146,3 @@ export default class GameScene extends Phaser.Scene{
         }
     }
 }
-
-// Hacer pantalla de game over
