@@ -14,3 +14,6 @@ Realmente me gustaría la idea de hacer una adaptación de Flappy Bird como un p
 
 ### Por aquí dejo algunas capturas de pantalla del juego
 
+![Captura1](https://user-images.githubusercontent.com/110499039/231277800-b5ff20a7-b39d-4597-a91d-4e70296cd509.png)
+![Captura3](https://user-images.githubusercontent.com/110499039/231278126-c80937da-7678-4708-b73a-38e997338fc5.png)
+![Captura2](https://user-images.githubusercontent.com/110499039/231278157-ba6f13c7-3134-4b04-bbd6-340f4892684b.png)
