@@ -12,4 +12,5 @@ Para el personaje usé un Stick Man, el pajaro lo diseñé yo, y para estos dos 
 
 Realmente me gustaría la idea de hacer una adaptación de Flappy Bird como un proyecto propio, ya que la lógica se asemeja de alguna manera a este juego (Runner).
 
-### Por aquí dejo algunas capturas de pantalla tanto del código como del juego
+### Por aquí dejo algunas capturas de pantalla del juego
+
