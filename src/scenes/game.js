@@ -20,7 +20,7 @@ export default class GameScene extends Phaser.Scene{
         this.puntosText = this.add.text(125, 0, "0", {fontFamily: "Text menu", fontSize: 30})
         this.add.text(0, 0, "Score:", {fontFamily: "Text menu", fontSize: 30})
 
-        this.puntosIntervalo = setInterval(() => {this.puntos++; this.puntosText.setText(this.puntos)}, 200)
+        this.puntosIntervalo = setInterval(() => {this.puntos++; this.puntosText.setText(this.puntos)}, 300)
 
         this.runner.setInteractive()
         this.jumping = false
@@ -83,13 +83,12 @@ export default class GameScene extends Phaser.Scene{
         clearInterval(this.puntosInterval)
         clearTimeout(this.timerBird)
         this.scene.start("Game Over", this.puntos)
-        gameOverAudio.play()
         this.bird.clear(true, true)
     }
  
     update(){
         if (this.cursorSpace.isDown && this.jumping === true){
-            this.runner.body.setVelocityY(-500)
+            this.runner.body.setVelocityY(-600)
             this.runner.anims.play("jump")
             jumpAudio.play()
             let timer = setTimeout(() => {
@@ -138,9 +137,13 @@ export default class GameScene extends Phaser.Scene{
         }
         if (this.jumping === true){
             this.runner.on("pointerup", () => {
-                this.runner.body.setVelocityY(-600)
+                this.runner.body.setVelocityY(-700)
                 this.runner.anims.play("jump")
                 jumpAudio.play()
+                let timer = setTimeout(() => {
+                    this.jumping = false
+                    let timer2 = setTimeout(() => {this.runner.anims.play("walk")}, 550)
+                }, 170);
 
             })
         }
